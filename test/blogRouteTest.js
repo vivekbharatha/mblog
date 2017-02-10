@@ -1,3 +1,8 @@
+var roast = require('roast.it');
+
+var BlogRoute = require('../route/blogRoute');
+var MessageMock = require('./mock/messageMock');
+
 roast.it('Is valid blog route', function isValidBlogRoute () {
    var req = {
        method: 'GET',
@@ -17,4 +22,6 @@ roast.it('Read raw post with path', function readRawPostWithPath () {
    
    var route = new BlogRoute({ message: messageMock, req: req });
    route.route();
+   
+   return messageMock.readTextFileCalledWithPath === 'blog/simple-blog-test.md' && messageMock.hasCallback;
 });

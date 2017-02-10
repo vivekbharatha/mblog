@@ -1,1 +1,5 @@
-module.exports = {};
+var readTextFile = require('./readTextFile');
+
+module.exports = {
+    readTextFile: readTextFile
+};
